@@ -79,17 +79,54 @@
                             android:text="Update Interval"
                             android:textSize="19sp" />
 
+                        <EditText
+                            android:textColor="@color/black"
+                            android:id="@+id/intervalText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+
+                        android:layout_marginBottom="7.5dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/changeHost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="7.5dp">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
                             android:textColor="@color/black"
-                            android:text="Change update interval."
-                            android:textSize="16sp" />
+                            android:text="Change Host"
+                            android:textSize="19sp" />
+
+                        <EditText
+                            android:textColor="@color/black"
+                            android:id="@+id/hostText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text" />
                     </LinearLayout>
 
 
+
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/applySetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apply" />
 
             </LinearLayout>
 

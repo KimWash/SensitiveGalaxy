@@ -1,14 +1,15 @@
 package com.kimwash.tempsensor
 
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.widget.Toolbar
+import android.util.Log
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class SettingActivity:AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
 
-    private lateinit var changeIntervalButton: LinearLayout
+    private lateinit var applyButton: Button
+    private lateinit var intervalTextView: TextView
+    private lateinit var hostTextView: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +21,18 @@ class SettingActivity:AppCompatActivity() {
         supportActionBar?.subtitle = "Change settings for your thermometer."
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        changeIntervalButton = findViewById(R.id.changeInterval)
-        changeIntervalButton.setOnClickListener {
-            Toast.makeText(this, "Not prepared yet.", Toast.LENGTH_SHORT).show()
+        applyButton = findViewById(R.id.applySetting)
+        intervalTextView = findViewById(R.id.intervalText)
+        hostTextView = findViewById(R.id.hostText)
+
+        intervalTextView.text = PreferenceManager.getInt(this, "interval").toString()
+        hostTextView.text = PreferenceManager.getString(this, "host")
+
+        applyButton.setOnClickListener {
+            PreferenceManager.setInt(this, "interval", intervalTextView.text.toString().toInt())
+            PreferenceManager.setString(this, "host", hostTextView.text.toString())
+            Toast.makeText(this, "Setting saved.", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
     }
